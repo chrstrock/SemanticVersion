@@ -1,5 +1,5 @@
 # SemanticVersion
-Semantic Version code challenge for Emergent Software
+Semantic Version code challenge
 
 
 # Webpage
