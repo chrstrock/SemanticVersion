@@ -7,9 +7,11 @@
     <h1 class="display-4">Semantic Version Finder</h1>
     <p>Find the version of your software</p>
     <br />
-    @Html.TextBoxFor(s => s.Version, new { @Value = "Enter Software Version", @class = "cyan" })
-
-    <style>
-        .cyan {color: cyan}
-    </style>
+    <!--Text Box for typing the version-->
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                <b>Version:  </b> @Html.TextBox("Version","Enter Version", new {style="color:cyan"})
+            }
+<input id="GetSoftwareButton" type="button" value="Get Software" onclick="return validateForm()"/>
+    
 </div>

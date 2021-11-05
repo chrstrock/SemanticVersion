@@ -18,9 +18,14 @@ namespace SemanticVersion.Controllers
             _logger = logger;
         }
 
+
+        /// <summary>
+        /// Return software list into view.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
-            return View();
+            return View(SoftwareManager.GetAllSoftware());
         }
 
         public IActionResult Privacy()
@@ -34,11 +39,26 @@ namespace SemanticVersion.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        /// <summary>
+        /// TextBox search action
+        /// </summary>
+        /// <param name="searchModel">The search model object that uses</param>
+        /// <returns></returns>
         [HttpPost]
-        public ActionResult Index(Software s)
+        public IActionResult Search(SoftwareSearchModel searchModel)
         {
-            ViewBag.Version = s.Version;
-            return View();
+            List<Software> softwareList = new List<Software>(SoftwareManager.GetAllSoftware());  //get the software list.
+
+            searchModel.softwareList = getSoftwareList(searchModel.SearchText);  //get the software filtered based on search text
+
+            return View("Index", searchModel);  //return to controller.
+        }
+
+        private List<Software> getSoftwareList(string searchText)
+        {
+            List<Software> softwareSearchResults = new List<Software>();
+
+            return softwareSearchResults;
         }
     }
 }
