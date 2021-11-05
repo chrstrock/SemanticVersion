@@ -33,5 +33,12 @@ namespace SemanticVersion.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public ActionResult Index(Software s)
+        {
+            ViewBag.Version = s.Version;
+            return View();
+        }
     }
 }

@@ -2,7 +2,14 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model SemanticVersion.Models.Software
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Semantic Version Finder</h1>
+    <p>Find the version of your software</p>
+    <br />
+    @Html.TextBoxFor(s => s.Version, new { @Value = "Enter Software Version", @class = "cyan" })
+
+    <style>
+        .cyan {color: cyan}
+    </style>
 </div>
