@@ -9,3 +9,8 @@ The page only cares about Major, Minor, and Patch versions.
 
 # Approach
 I used a MVC approach to build the webpage, making the classes provided the model, and then modifying the view and controller as necessary.
+
+# What I would have done with more time.
+1. More Unit Tests
+2. Validation
+3. Better UI
