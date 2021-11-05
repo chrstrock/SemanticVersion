@@ -22,6 +22,7 @@ namespace SemanticVersion.Controllers.Tests
             SoftwareSearchModel searchModel = new SoftwareSearchModel();
             searchModel.SearchText = "2";
             searchModel.setSoftwareList();
+            List<Software> actualList = searchModel.softwareList;
             List<Software> expectedList = new List<Software> 
             { new Software
                 {
@@ -50,7 +51,7 @@ namespace SemanticVersion.Controllers.Tests
                 },
 
             };
-            Assert.IsTrue(searchModel.softwareList.Equals(expectedList));
+            CollectionAssert.AreEquivalent(expectedList, actualList);
 
         }
     }
