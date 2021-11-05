@@ -49,16 +49,10 @@ namespace SemanticVersion.Controllers
         {
             List<Software> softwareList = new List<Software>(SoftwareManager.GetAllSoftware());  //get the software list.
 
-            searchModel.softwareList = getSoftwareList(searchModel.SearchText);  //get the software filtered based on search text
+            searchModel.setSoftwareList();  //get the software filtered based on search text
 
             return View("Index", searchModel);  //return to controller.
         }
 
-        private List<Software> getSoftwareList(string searchText)
-        {
-            List<Software> softwareSearchResults = new List<Software>();
-
-            return softwareSearchResults;
-        }
     }
 }

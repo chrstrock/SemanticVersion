@@ -11,5 +11,25 @@ namespace SemanticVersion.Models
         public List<Software> softwareList { get; set; }
         //string to contain the search text
         public string SearchText { get; set; }
+
+        public void setSoftwareList()
+        {
+            if(Char.IsDigit(SearchText[0]) && SearchText.Length == 1)
+            {
+                SearchText += ".0";
+            }
+            Version version = new Version(SearchText);
+            List<Software> allSoftwareList = new List<Software>( SoftwareManager.GetAllSoftware());
+            softwareList = new List<Software>();
+
+            foreach (Software software in allSoftwareList)
+            {
+                if (new Version(software.Version) > version)
+                {
+                    softwareList.Add(software);
+                }
+
+            }
+        }
     }
 }
