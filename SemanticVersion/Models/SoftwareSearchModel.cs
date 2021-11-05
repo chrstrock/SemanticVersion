@@ -14,7 +14,7 @@ namespace SemanticVersion.Models
 
         public SoftwareSearchModel()
         {
-            SearchText = "0";
+            
             softwareList = new List<Software>();
         }
         public void setSoftwareList()
