@@ -11,6 +11,7 @@ The page only cares about Major, Minor, and Patch versions.
 I used a MVC approach to build the webpage, making the classes provided the model, and then modifying the view and controller as necessary.
 
 # What I would have done with more time.
-1. More Unit Tests
-2. Validation
-3. Better UI
+1. More Unit Tests - I was unable to get a passing Unit Test working.  I wrote one, but it wasn't passing properly.
+2. Validation - The inputs don't have validation and I would have put validation on the search box text.
+3. Better UI - the UI is not really user friendly.  Had I had more time, I would have improved the user experience including better instructions and a better looking table.
+4. More refactoring -  I would have cleaned up the code where I could to make it work better.
