@@ -11,8 +11,12 @@ namespace SemanticVersion.Controllers.Tests
     [TestClass()]
     public class SearchModelTests
     {
+
+        /// <summary>
+        /// Test to determine expected result for input of 2.
+        /// </summary>
         [TestMethod()]
-        public void getSoftwareListTest()
+        public void getSoftwareListFor2Test()
         {
             
             SoftwareSearchModel searchModel = new SoftwareSearchModel();
@@ -46,7 +50,7 @@ namespace SemanticVersion.Controllers.Tests
                 },
 
             };
-            Assert.AreEqual(expectedList, searchModel.softwareList);
+            Assert.IsTrue(searchModel.softwareList.Equals(expectedList));
 
         }
     }

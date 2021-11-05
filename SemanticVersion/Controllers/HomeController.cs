@@ -20,12 +20,12 @@ namespace SemanticVersion.Controllers
 
 
         /// <summary>
-        /// Return software list into view.
+        /// Return software search model into view.
         /// </summary>
         /// <returns></returns>
         public IActionResult Index()
         {
-            return View(SoftwareManager.GetAllSoftware());
+            return View(new SoftwareSearchModel { softwareList = new List<Software>() });
         }
 
         public IActionResult Privacy()

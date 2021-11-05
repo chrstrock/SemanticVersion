@@ -1,17 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model SoftwareSearchModel
+@{
+    Layout = null;
+     ViewData["Title"] = "Home Page";
 }
 
-@model SemanticVersion.Models.Software
 <div class="text-center">
     <h1 class="display-4">Semantic Version Finder</h1>
     <p>Find the version of your software</p>
     <br />
     <!--Text Box for typing the version-->
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+    {
+        <!--Loop through the software list and display based on search text-->
+        <table>
+            <tr>
+                <td>@Html.TextBoxFor(f => f.SearchText, new { @Value = "Enter Software Version number" , @class = "gray"})</td>
+                <td><button type="submit">Search</button></td>
+            </tr>
+            <tr>
+                <td class="underline">Software Name</td>
+                <td class="underline">Software Version</td>
+            </tr>
+           
+            @foreach (var item in Model.softwareList)
             {
-                <b>Version:  </b> @Html.TextBox("Version","Enter Version", new {style="color:cyan"})
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Version)
+                    </td>
+                </tr>
             }
-<input id="GetSoftwareButton" type="button" value="Get Software" onclick="return validateForm()"/>
-    
+            
+           
+        </table>
+    }
+    <style>
+        .gray {color: gray}
+    </style>
+
+
 </div>
